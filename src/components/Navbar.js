@@ -1,12 +1,10 @@
-import react from "react";
-
-function Navbar (){
+|function Navbar (){
     return (
         <nav className="flex justify-between items-center h-16 bg-white text-black relative shadow-sm">
 
-        <link to="/" className="pl-8">
+        <div className="pl-8">
             Logo 
-        </link>
+        </div>
 
         <div className="px-4 cursor-pointer md:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -14,7 +12,11 @@ function Navbar (){
             </svg>
         </div>
         <div>
-            
+            <ul className="flex justify-between items-center flex-wrap">
+                <li>Home</li>
+                <li>Productos</li>
+                <li>Nosotros</li>
+            </ul>
         </div>
 
         </nav>
