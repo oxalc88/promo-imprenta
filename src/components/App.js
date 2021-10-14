@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="h-screen"> 
       <Navbar />
-      <ItemListContainer />
+      <ItemListContainer visita="Ernesto" />
     </div>
   );
 }
