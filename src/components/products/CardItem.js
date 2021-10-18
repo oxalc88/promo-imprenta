@@ -1,4 +1,6 @@
+import { Button } from "../Buttons/Button"
 import { ItemCount } from "./ItemCount"
+
 
 function CardItem () {
     return (
@@ -9,10 +11,10 @@ function CardItem () {
                 <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Mochila</h1>
 
                 <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit In odit</p>
-                <ItemCount />                
+                <ItemCount stock='10' cart='1'/>                
                 <div className="flex justify-between mt-3 item-center">
                     <h2 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl">$220</h2>
-                    <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">Comprar</button>
+                    <Button action='Comprar' />
                 </div>
             </div>
         </div>

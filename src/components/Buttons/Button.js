@@ -1,9 +1,14 @@
-function Button ({ settingItems, onClickFunction }){
-    
+function ButtonCart ({ settingItems, onClickFunction }){
     return( 
-        <button lassName="absolute inset-y-0 left-1 flex items-center" onClick={onClickFunction}>
-        {settingItems}
+        <button className="h-4 w-4 text-gray-400" onClick={onClickFunction}>
+        {settingItems} 
         </button>);
 };
 
-export {Button}
+function Button (props) {
+    return(
+        <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:bg-gray-700 dark:focus:bg-gray-600">{props.action}</button>
+    )
+}
+
+export {ButtonCart, Button}
