@@ -4,7 +4,7 @@ import { ButtonCart } from '../Buttons/Button'
 
 function ItemCount(props) {
     const stock = props.stock;
-    const [cart, setCart] = useState(props.cart);
+    const [cart, setCart] = useState(1);
     
     function addToCart() {
         if (cart < stock) { setCart(cart + 1); console.log(cart); } else { console.log('Gracias por tu preferencia, incrementaremos stock lo antes posible'); }
@@ -14,6 +14,9 @@ function ItemCount(props) {
         if (cart > 0) { setCart(cart - 1); console.log(cart); } else { console.log('Anìmate, sòlo se vive una vez'); }
     }
 
+    function onAdd() {
+        alert(`Se añadieron ${cart} al carrito`)
+    }
 
     return (
         <div>
