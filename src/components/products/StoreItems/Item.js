@@ -1,9 +1,10 @@
 import {useState} from "react";
-import { Button } from "../Buttons/Button"
+import { Button } from "../../Buttons/Button";
+
 import { ItemCount } from "./ItemCount"
 
 
-function CardItem () {
+function Item () {
     const [cart, setCart] = useState(1);
     
     function onAdd() {
@@ -25,11 +26,11 @@ function CardItem () {
                 />                
                 <div className="flex justify-between mt-3 item-center">
                     <h2 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl">$220</h2>
-                    <Button action='Comprar'onClickFunction={onAdd} />
+                    <Button action='Comprar' onClickFunction={onAdd}/>
                 </div>
             </div>
         </div>
     )
 }
 
-export {CardItem}
+export {Item}
