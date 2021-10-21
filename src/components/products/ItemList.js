@@ -1,15 +1,25 @@
 import { useEffect } from "react";
+import { useState } from "react/cjs/react.development";
 import { Item } from "./products/Item";
 
-useEffect(() => {
-    fetch('https://fakestoreapi.com/products?limit=5')
-            .then(res=>res.json())
-            .then(json=>console.log(json))
-})
 
 
 
-function ItemListContainer(props) {
+function ItemListContainer({item}) {
+    
+    const [item, setItem] = useState([]);
+    
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products?limit=5')
+                .then((res)=>{
+                    return res.json();})
+                // .then(json=>console.log(json))
+                .then((result) =>{
+                    const { results } = result;
+                    setItem(results);
+                })
+    }, [])
+    
     return (
         
     <section className="bg-white dark:bg-gray-900">
@@ -18,7 +28,7 @@ function ItemListContainer(props) {
                 <CategoryList />
 
                 <div className="mt-6 lg:mt-0 lg:px-2 lg:w-4/5 ">
-                    <Item />
+                    {ItemListContainer.map((item) => <Item key={item.id} image={item.image} price={item.price} title={item.title} description={item.description} image={item.image} />)}
                 </div>
             </div>
         </div>
