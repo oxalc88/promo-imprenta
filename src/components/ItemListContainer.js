@@ -1,4 +1,4 @@
-import { Item } from "./products/StoreItems/Item";
+import { ItemList } from "./products/ItemList";
 
 function ItemListContainer(props) {
     return (
@@ -6,7 +6,7 @@ function ItemListContainer(props) {
             <h1>
                 Bienvenido {props.visita} a nuestra tienda.
             </h1>
-            <Item />
+            <ItemList />
         </main>
     );
 }
