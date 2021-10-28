@@ -15,7 +15,7 @@ function ItemCount(props) {
     
     return (
         <div>
-            <div className="w-1/3 mt-1 relative rounded shadow-sm flex">
+            <div className="w-1/3 mt-1 relative rounded shadow-sm flex mx-auto">
             <ButtonCart 
                 settingItems={<MinusCircleIcon />} 
                 onClickFunction={restToCart}

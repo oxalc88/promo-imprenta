@@ -1,7 +1,7 @@
-import { CartWidget } from "./NavBar/CartWidget";
-import { MenuLogo } from "./NavBar/MenuLogo";
-import { NavbarMenuElement } from "./NavBar/NavbarMenu";
-import { Search } from "./NavBar/Search";
+import { CartWidget } from "./NavbarElemens/CartWidget";
+import { MenuLogo } from "./NavbarElemens/MenuLogo";
+import { NavbarMenuElement } from "./NavbarElemens/NavbarMenu";
+import { Search } from "./NavbarElemens/Search";
 
 function Navbar (){
     return (
