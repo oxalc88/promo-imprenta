@@ -1,34 +1,26 @@
 import {useState} from "react";
-import { Button } from "../../Buttons/Button";
+import { Link } from "react-router-dom";
+import { ButtonAddtoCart } from "../../Buttons/Button";
 import { ItemCount } from "./ItemCount"
 
 
-function Item ({image, title, description, price}) {
+function Item ({image, title, price, id}) {
     const [cart, setCart] = useState(1);
     
-    function onAdd() {
-        alert(`Las ${cart} ${title} han sido agregadas a su compra`)
-    }
+    // function onAdd() {
+    //     alert(`Las ${cart} ${title} han sido agregadas a su compra`)
+    // }
 
     return (
-        <div className="flex max-w-md mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-            <div className="w-1/3 bg-cover" style= {{backgroundImage: `"url(${image})"`}}/> 
-
-            <div className="w-2/3 p-4 md:p-4">
-                <h1 className="text-2xl font-bold text-gray-800 dark:text-white">{title}</h1>
-
-                <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{description}</p>
-                <ItemCount 
-                stock='10' 
-                cart={cart}
-                setCart={setCart}
-                />                
-                <div className="flex justify-between mt-3 item-center">
-                    <h2 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl">{price}</h2>
-                    <Button action='Comprar' onClickFunction={onAdd}/>
-                </div>
+            <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto">
+                <img className="object-cover w-full rounded-md h-72 xl:h-80" src={`${image}`} alt={`"${title}"`}/>
+                <h4 className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200">{title}</h4>
+                <ItemCount stock='10' cart={cart} setCart={setCart}/>
+                <p className="text-blue-500">{price}</p>
+                <Link to={`/item/:${id}`} >
+                <ButtonAddtoCart action='Comprar'/>
+                </Link>
             </div>
-        </div>
     )
 }
 
