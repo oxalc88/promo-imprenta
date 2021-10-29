@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
+import { Navbar } from "../NavBar/Navbar";
 
-function Routes({chidren}) {
+function Routes({children}) {
     return(
         <BrowserRouter>
+            <Navbar/>
             <Switch>
-                {chidren}
+                {children}
             </Switch>
         </BrowserRouter>
     )

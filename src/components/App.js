@@ -1,15 +1,16 @@
 //import './App.css';
 import { ItemListContainer } from './ItemListContainer';
-import { Navbar } from './NavBar/Navbar';
 import { Routes } from './routes/Routes';
+import { Route } from 'react-router-dom';
+import { ItemDetailContainer } from './products/StoreItems/ItemDetailContainer';
 
 function App() {
   return (
-    <div className="h-screen"> 
-      <Navbar />
-      <ItemListContainer visita="Ernesto" />
-    </div>
+    <Routes> 
+      <Route exact path="/" component={ItemListContainer("Ernesto")} />
+      <Route path="/item/:id" component={ItemDetailContainer}/>
+    </Routes>
   );
 }
-// https://reactrouter.com/web/guides/quick-start
+
 export default App;
