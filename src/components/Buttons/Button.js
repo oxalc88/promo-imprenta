@@ -1,4 +1,4 @@
-import { MenuIcon, ShoppingBagIcon, ShoppingCartIcon } from "@heroicons/react/outline";
+import { MenuIcon, ShoppingCartIcon } from "@heroicons/react/outline";
 function ButtonCart ({ settingItems, onClickFunction }){
     return( 
         <button className="h-4 w-4 text-gray-400" onClick={onClickFunction}>
