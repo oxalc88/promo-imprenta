@@ -1,18 +1,19 @@
+import React from 'react'
 import { useParams } from "react-router";
-import {useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
-function ItemDetailContainer({product}) {
+const ProductDetail = ({ product }) => {
     const [item, setItem] = useState({})
-    const {id} = useParams()
-    
+    const { id } = useParams()
+
     useEffect(() => {
         const findItem = product.filter(item => item.id === id)
         setItem(...findItem)
     }, [id])
-        
-    
-    
-     return (   
+
+
+
+    return (
         <div className="container flex flex-col px-6 py-4 mx-auto space-y-6 lg:h-128 lg:py-16 lg:flex-row lg:items-center lg:space-x-6">
             <div className="flex flex-col items-center w-full lg:flex-row lg:w-1/2">
 
@@ -32,7 +33,7 @@ function ItemDetailContainer({product}) {
                 <img className="object-cover w-full h-full max-w-2xl rounded-md" src={`${item.image}`} alt="apple watch photo" />
             </div>
         </div>
-     );
+    );
 }
 
-export {ItemDetailContainer}
+export default ProductDetail

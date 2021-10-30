@@ -1,4 +1,4 @@
-function NavbarMenuElement () {
+function Menu () {
     const menuItems = ['Inicio', 'Tienda', 'Contacto', 'Nosotros']
     
     return (
@@ -10,4 +10,4 @@ function NavbarMenuElement () {
     );
 }
 
-export {NavbarMenuElement}
+export {Menu}

@@ -1,4 +1,4 @@
-function CategoryList({product}) {
+const CategoryList = ({product}) => {
     const filteredProducts = [];
     product.map(item => {
     if (filteredProducts.indexOf(item.category) === -1) {
