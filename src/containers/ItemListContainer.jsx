@@ -1,4 +1,4 @@
-import { CategoryList } from "../components/products/Categories/CategoryList";
+import { CategoryList } from "../components/products/Categories/CategoryFilter";
 import { ProductsList } from "../components/products/StoreItems/ProductsList";
 import useGetProducts from "../hooks/useGetProducts";
 
