@@ -1,23 +1,21 @@
-import { useState, useEffect } from "react";
-import { FetchingstoreItem } from "../Utils/FetchingStoreItems"
 import { CategoryList } from "../components/products/Categories/CategoryList";
 import { ProductsList } from "../components/products/StoreItems/ProductsList";
+import useGetProducts from "../hooks/useGetProducts";
 
-function ItemListContainer() {
-    const [product, setProduct] = useState([]);
-    useEffect(() => {
-        FetchingstoreItem({ setProduct });
-    }, []);
+const API = "https://fakestoreapi.com/products"
 
+const ItemListContainer = () => {
+    const products = useGetProducts(API);
+    
     return (
         <>
             <main className="container px-6">
                 <section className="bg-white dark:bg-gray-900">
                     <div className="container px-6 py-8 mx-auto">
-                        <div className="lg:flex lg:-mx-2">
-                            <CategoryList product={product} />
+                        <div className="lg:flex lg:-mx-2 lg:space-x-14">
+                            <CategoryList product={products} />
 
-                            <ProductsList product={product} />
+                            <ProductsList products={products} />
                         </div>
                     </div>
                 </section>

@@ -1,18 +1,19 @@
-const CategoryList = ({product}) => {
+const CategoryList = ({ product }) => {
+
     const filteredProducts = [];
-    product.map(item => {
-    if (filteredProducts.indexOf(item.category) === -1) {
-        filteredProducts.push(item.category)
-    }
-}); 
+    product.map((product) => {
+        if (filteredProducts.indexOf(product.category) === -1) {
+            filteredProducts.push(product.category)
+        }
+    });
     return (
         <div className="space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
-            {filteredProducts.map((item) => 
-            (<a key={item.id} href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline">
+            {filteredProducts.map((item) =>
+            (<a key={item.id} href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline uppercase">
                 {item}</a>))}
         </div>
     )
-    
+
 }
 
-export {CategoryList}
+export { CategoryList }

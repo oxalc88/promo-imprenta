@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function CartWidget(){
     return (
-        <div className="flex justify-center md:block">
+        <div className="flex justify-center md:block py-3">
             <Link to="/cart">
             <a className="relative text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300" >
                 <ShoppingCartIcon className="w-5 h-5" viewBox="0 0 24 24" fill="none"/>
