@@ -1,5 +1,7 @@
 import React from 'react'
 import { useParams } from "react-router";
+import { ButtonAddtoOrder } from '../components/Buttons/Button';
+import { ItemCount } from '../components/products/StoreItems/ItemCount';
 import useGetProducts from '../hooks/useGetProducts';
 
 const ProductDetail = () => {
@@ -16,12 +18,13 @@ const ProductDetail = () => {
                 <div className="max-w-lg lg:mx-12 lg:order-2 lg:space-y-6">
                     <h1 className="text-3xl font-medium tracking-wide text-gray-800 dark:text-white lg:text-4xl">{products.title}</h1>
                     <p className="mt-4 text-gray-600 dark:text-gray-300">{products.description}</p>
-                    <div className="flex-shrink-0">
+                    <div className=" flex place-items-center">
                         <span className="pt-2 text-4xl font-bold text-gray-800 dark:text-gray-100">{products.price}</span>
+                        <ItemCount />
+                        <ButtonAddtoOrder name={'Añadir al carrito'} />
                     </div>
-                    <div className="mt-6">
-                        <a href="#" className="block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md lg:inline hover:bg-blue-400">Comprar</a>
-                    </div>
+
+                    
                 </div>
             </div>
 
