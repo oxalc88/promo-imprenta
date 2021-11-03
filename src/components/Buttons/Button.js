@@ -37,4 +37,12 @@ function ButtonAddtoOrder(props) {
     )
 }
 
-export { ButtonCart, Button, ButtonAddtoCart, ButtonHamburguer, ButtonAddtoOrder }
+function BacktoHomeButton(props) {
+    return(
+    <button className="px-6 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 md:mx-0 md:w-auto focus:outline-none">
+        {props.message}
+    </button>
+    )
+}
+
+export { ButtonCart, Button, ButtonAddtoCart, ButtonHamburguer, ButtonAddtoOrder, BacktoHomeButton }
