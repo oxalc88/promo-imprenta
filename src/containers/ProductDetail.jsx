@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { useParams } from "react-router";
 import { Link } from 'react-router-dom';
 import { ButtonAddtoOrder } from '../components/Buttons/Button';
 import { ItemCount } from '../components/products/StoreItems/ItemCount';
 import useGetProducts from '../hooks/useGetProducts';
+import AppContext from '../context/AppContext';
 
 const ProductDetail = () => {
     const { id } = useParams();
     const newId = id.slice(1)
     const API = `https://fakestoreapi.com/products/${newId}`
     const products = useGetProducts(API);
-    const [cart, setCart] = useState(1);
+    const {state, addToCart} = useContext(AppContext);
+    
+    const quantity = state.cart
+    const setQuantity = setState.cart
+
+    const stock = 10;
 
 
     return (
@@ -22,12 +28,14 @@ const ProductDetail = () => {
                     <p className="mt-4 text-gray-600 dark:text-gray-300">{products.description}</p>
                     <div className=" flex place-items-center">
                         <span className="pt-2 text-4xl font-bold text-gray-800 dark:text-gray-100">{products.price}</span>
-                        <ItemCount stock='10' cart={cart} setCart={setCart} />
+                        <ItemCount stock={stock} cart={quantity} setCart={setQuantity} />
                         <Link to="/cart" >
                         <ButtonAddtoOrder name={'Añadir al carrito'} />
                         </Link>
                     </div>
-
+                    <div>
+                        Disponibles {stock - cart} unidades.
+                    </div>
 
                 </div>
             </div>
