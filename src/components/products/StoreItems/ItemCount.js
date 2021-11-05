@@ -1,4 +1,4 @@
-import { MinusCircleIcon, PlusCircleIcon } from '@heroicons/react/outline'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import { ButtonCart } from '../../Buttons/Button';
 
 
@@ -29,7 +29,7 @@ const ItemCount = ({ quantity, stock, setQuantity }) => {
         <div>
             <div className="w-1/3 mt-1 relative rounded shadow-sm flex mx-auto my-auto">
                 <ButtonCart
-                    settingItems={<MinusCircleIcon />}
+                    settingItems={<ChevronLeftIcon />}
                     onClickFunction={minusItem}
                 />
                 <input
@@ -38,7 +38,7 @@ const ItemCount = ({ quantity, stock, setQuantity }) => {
                     onChange={setQuantity}
                 />
                 <ButtonCart
-                    settingItems={<PlusCircleIcon />}
+                    settingItems={<ChevronRightIcon />}
                     onClickFunction={plusItem}
                 />
             </div>
