@@ -18,16 +18,9 @@ const ItemCount = ({ quantity, stock, setQuantity }) => {
         else { console.log('Anìmate, sòlo se vive una vez') }
     };
 
-    // const addToCart = () => {
-    //     if (props.cart < stock) { props.setCart(props.cart++); console.log(props.cart); } else { console.log('Gracias por tu preferencia, incrementaremos stock lo antes posible'); }
-    // }
-    // const restToCart = () => {
-    //     if (props.cart > 0) { props.setCart(props.cart--); console.log(props.cart); } else { console.log('Anìmate, sòlo se vive una vez'); }
-    // }
-
     return (
         <div>
-            <div className="w-1/3 mt-1 relative rounded shadow-sm flex mx-auto my-auto">
+            <div className="w-1/3 mt-3 relative rounded shadow-sm flex my-auto">
                 <ButtonCart
                     settingItems={<ChevronLeftIcon />}
                     onClickFunction={minusItem}
