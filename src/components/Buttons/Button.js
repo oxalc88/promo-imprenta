@@ -45,7 +45,7 @@ function BacktoHomeButton(props) {
     )
 }
 
-function RemoveCartButton({action}) {
+function RemoveCartButton({ action }) {
     return (
         <button type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
             <TrashIcon viewBox="0 0 22 22" className="w-4 h-4 fillCurrent" />
@@ -55,4 +55,15 @@ function RemoveCartButton({action}) {
 
 }
 
-export { ButtonCart, Button, ButtonAddtoCart, ButtonHamburguer, ButtonAddtoOrder, BacktoHomeButton, RemoveCartButton }
+function ButtonCheckout({message}) {
+
+    return (
+        <div
+            className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
+        >
+            {message}
+        </div>
+    )
+}
+
+export { ButtonCart, Button, ButtonAddtoCart, ButtonHamburguer, ButtonAddtoOrder, BacktoHomeButton, RemoveCartButton, ButtonCheckout }

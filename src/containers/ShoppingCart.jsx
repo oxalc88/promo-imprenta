@@ -1,27 +1,121 @@
+import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { XIcon } from '@heroicons/react/outline'
+import { Link } from 'react-router-dom'
+import { ButtonCheckout } from '../components/Buttons/Button'
 import MyOrder from "../components/Orders/MyOrder";
 
-function ShoppingCart() {
+const products = [
+    {
+        id: 1,
+        name: 'Throwback Hip Bag',
+        href: '#',
+        color: 'Salmon',
+        price: '$90.00',
+        quantity: 1,
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
+        imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
+    },
+    {
+        id: 2,
+        name: 'Medium Stuff Satchel',
+        href: '#',
+        color: 'Blue',
+        price: '$32.00',
+        quantity: 1,
+        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
+        imageAlt:
+            'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
+    },
+]
+
+const ShoppingCart = () => {
+	const [toggleOrder, setToggleOrder] = useState(true)
+	
+
 	return (
-		<div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 bg-coolGray-50 text-coolGray-800">
-			<h2 className="text-xl font-semibold">Your cart</h2>
-			{products.map((product) =>
-				<MyOrder key={product.id} product={product} />
-			)}
-			<div className="space-y-1 text-right">
-				<p>Total amount:
-					<span className="font-semibold">357 €</span>
-				</p>
-				<p className="text-sm text-coolGray-600">Not including taxes and shipping costs</p>
-			</div>
-			<div className="flex justify-end space-x-4">
-				<button type="button" className="px-6 py-2 border rounded-md border-violet-600">Back
-					<span className="sr-only sm:not-sr-only">to shop</span>
-				</button>
-				<button type="button" className="px-6 py-2 border rounded-md bg-violet-600 text-coolGray-50 border-violet-600">
-					<span className="sr-only sm:not-sr-only">Continue to</span>Checkout
-				</button>
-			</div>
-		</div>
+		<Transition.Root show={toggleOrder} as={Fragment}>
+			<Dialog as="div" className="fixed inset-0 overflow-hidden" onClose={setToggleOrder}>
+				<div className="absolute inset-0 overflow-hidden">
+					<Transition.Child
+						as={Fragment}
+						enter="ease-in-out duration-500"
+						enterFrom="opacity-0"
+						enterTo="opacity-100"
+						leave="ease-in-out duration-500"
+						leaveFrom="opacity-100"
+						leaveTo="opacity-0"
+					>
+						<Dialog.Overlay className="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+					</Transition.Child>
+
+					<div className="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+						<Transition.Child
+							as={Fragment}
+							enter="transform transition ease-in-out duration-500 sm:duration-700"
+							enterFrom="translate-x-full"
+							enterTo="translate-x-0"
+							leave="transform transition ease-in-out duration-500 sm:duration-700"
+							leaveFrom="translate-x-0"
+							leaveTo="translate-x-full"
+						>
+							<div className="w-screen max-w-md">
+								<div className="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
+									<div className="flex-1 py-6 overflow-y-auto px-4 sm:px-6">
+										<div className="flex items-start justify-between">
+											<Dialog.Title className="text-lg font-medium text-gray-900">Carrito de Compras</Dialog.Title>
+											<div className="ml-3 h-7 flex items-center">
+												<button
+													type="button"
+													className="-m-2 p-2 text-gray-400 hover:text-gray-500"
+													onClick={() => setToggleOrder(false)}
+												>
+													<XIcon className="h-6 w-6" aria-hidden="true" />
+												</button>
+											</div>
+										</div>
+
+										<div className="mt-8">
+											<div className="flow-root">
+												<ul role="list" className="-my-6 divide-y divide-gray-200">
+													{products.map((product) => (
+														<MyOrder key={`orderItem-${product.id}`} product={product} />	
+													))}
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div className="border-t border-gray-200 py-6 px-4 sm:px-6">
+										<div className="flex justify-between text-base font-medium text-gray-900">
+											<p>Subtotal</p>
+											<p>$262.00</p>
+										</div>
+										<div className="mt-6">
+											<Link to="/cart">
+												<ButtonCheckout message={'Ir a la bolsa'} />
+											</Link>
+										</div>
+										<div className="mt-6 flex justify-center text-sm text-center text-gray-500">
+											<p>
+												o{' '}
+												<button
+													type="button"
+													className="text-blue-600 font-medium hover:text-blue-500"
+													onClick={() => setToggleOrder(false)}
+												>
+													Sigue Comprando<span aria-hidden="true"> &rarr;</span>
+												</button>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</Transition.Child>
+					</div>
+				</div>
+			</Dialog>
+		</Transition.Root>
 	)
 }
 

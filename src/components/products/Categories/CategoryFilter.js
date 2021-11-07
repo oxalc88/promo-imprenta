@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const CategoryList = ({ product }) => {
+const CategoryFilter = ({ product }) => {
 
     const filteredProducts = [];
     product.map((product) => {
@@ -14,8 +14,8 @@ const CategoryList = ({ product }) => {
             {filteredProducts.map((item) =>
             (
                 <Link to={`/category/:${item}`}>
-                <a key={item.id} className="block font-medium text-gray-500 dark:text-gray-300 hover:underline uppercase px-10">
-                {item}</a>
+                <div key={`category-id-${item.id}`} className="block font-medium text-gray-500 dark:text-gray-300 hover:underline uppercase px-10">
+                {item}</div>
                 </Link>))}
         </div>
         </>
@@ -23,4 +23,4 @@ const CategoryList = ({ product }) => {
 
 }
 
-export { CategoryList }
+export { CategoryFilter }
