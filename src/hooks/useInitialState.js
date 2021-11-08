@@ -13,7 +13,6 @@ const useInitialState = () => {
             cart: [...state.cart, payload]
         });
     };
-
     
 
     return{
