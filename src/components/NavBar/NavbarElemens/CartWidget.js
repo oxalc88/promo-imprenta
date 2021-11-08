@@ -1,12 +1,10 @@
 import { ShoppingBagIcon } from "@heroicons/react/outline";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import AppContext from "../../../context/AppContext"
 
 
 function CartWidget() {
     const { state: { cart } } = useContext(AppContext);
-    // const [toggleOrders, setToggleOrders] = useState(false)
-
 
     return (
         <div className="flex md:block py-3">

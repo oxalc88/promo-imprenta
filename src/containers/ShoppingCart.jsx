@@ -1,36 +1,14 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useContext } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-router-dom'
 import { ButtonCheckout } from '../components/Buttons/Button'
 import MyOrder from "../components/Orders/MyOrder";
-
-const products = [
-    {
-        id: 1,
-        name: 'Throwback Hip Bag',
-        href: '#',
-        color: 'Salmon',
-        price: '$90.00',
-        quantity: 1,
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-        imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.',
-    },
-    {
-        id: 2,
-        name: 'Medium Stuff Satchel',
-        href: '#',
-        color: 'Blue',
-        price: '$32.00',
-        quantity: 1,
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-        imageAlt:
-            'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
-    },
-]
+import AppContext from '../context/AppContext.js'
 
 const ShoppingCart = () => {
 	const [toggleOrder, setToggleOrder] = useState(true)
+	const {state: {cart}} = useContext(AppContext)
 	
 
 	return (
@@ -78,9 +56,9 @@ const ShoppingCart = () => {
 										<div className="mt-8">
 											<div className="flow-root">
 												<ul role="list" className="-my-6 divide-y divide-gray-200">
-													{products.map((product) => (
+													{cart.map((product => (
 														<MyOrder key={`orderItem-${product.id}`} product={product} />	
-													))}
+													)))}
 												</ul>
 											</div>
 										</div>
