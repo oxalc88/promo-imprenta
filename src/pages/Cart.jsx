@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BacktoHomeButton } from '../components/Buttons/Button'
+import { BacktoHomeButton, RemoveCartButton } from '../components/Buttons/Button'
+import { TrashIcon } from '@heroicons/react/outline'
+import { ItemCount } from '../components/products/StoreItems/ItemCount'
 
 function Cart() {
     return (

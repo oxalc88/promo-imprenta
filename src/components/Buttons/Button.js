@@ -1,4 +1,4 @@
-import { MenuIcon, ShoppingCartIcon } from "@heroicons/react/outline";
+import { MenuIcon, ShoppingCartIcon, TrashIcon } from "@heroicons/react/outline";
 
 function ButtonCart({ settingItems, onClickFunction }) {
     return (
@@ -22,7 +22,7 @@ function ButtonAddtoCart(props) {
     )
 }
 
-function ButtonHamburguer(props) {
+function ButtonHamburguer() {
     return (
         <button type="button" className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
             <MenuIcon className="w-6 h-6 fill-current" />
@@ -32,17 +32,38 @@ function ButtonHamburguer(props) {
 }
 
 function ButtonAddtoOrder(props) {
-    return(
-    <button href="#" className="mt-6 block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md lg:inline hover:bg-blue-400" onClick={props.onClickFunction}>{props.name}</button>
+    return (
+        <button href="#" className="mt-6 block px-3 py-2 font-semibold text-center text-white transition-colors duration-200 transform bg-blue-500 rounded-md lg:inline hover:bg-blue-400" onClick={props.onClickFunction}>{props.name}</button>
     )
 }
 
 function BacktoHomeButton(props) {
-    return(
-    <button className="px-6 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 md:mx-0 md:w-auto focus:outline-none">
-        {props.message}
-    </button>
+    return (
+        <button className="px-6 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 md:mx-0 md:w-auto focus:outline-none">
+            {props.message}
+        </button>
     )
 }
 
-export { ButtonCart, Button, ButtonAddtoCart, ButtonHamburguer, ButtonAddtoOrder, BacktoHomeButton }
+function RemoveCartButton({ action }) {
+    return (
+        <button type="button" className="flex items-center px-2 py-1 pl-0 space-x-1">
+            <TrashIcon viewBox="0 0 22 22" className="w-4 h-4 fillCurrent" />
+            <span>{action}</span>
+        </button>
+    )
+
+}
+
+function ButtonCheckout({message}) {
+
+    return (
+        <div
+            className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
+        >
+            {message}
+        </div>
+    )
+}
+
+export { ButtonCart, Button, ButtonAddtoCart, ButtonHamburguer, ButtonAddtoOrder, BacktoHomeButton, RemoveCartButton, ButtonCheckout }

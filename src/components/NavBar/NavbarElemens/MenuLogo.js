@@ -9,15 +9,14 @@ function MenuLogo({ logo }) {
     const handleToggle = () => {
         setToggle(!toggle);
     }
-
     return (
         <>
             <div className="flex items-center justify-between">
                 {/* Logo Barra Menu*/}
                 <div>
                     <Link to={"/"}>
-                        <a className="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300">
-                            {logo}</a>
+                        <div className="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300">
+                            {logo}</div>
                     </Link>
                 </div>
 
@@ -28,7 +27,9 @@ function MenuLogo({ logo }) {
             </div>
             <div className="grid justify-items-start md:hidden">
                 {toggle && <Menu />}
+                <Link to={"/cart"}>
                 {toggle && <CartWidget />}
+                </Link>
             </div>
         </>
     );
