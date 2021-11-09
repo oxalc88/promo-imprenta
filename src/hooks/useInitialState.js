@@ -14,10 +14,27 @@ const useInitialState = () => {
         });
     };
     
+    const removeCart = (payload) => {
+        setState ({
+            ...state,
+            cart: state.cart.filter(items => items.id !== payload.id)
+        });
+        console.log(state.cart);
+    };
+
+    const clearCart = () => setState(initialState)
+
+    const isInCart = (itemId) => {
+        //true
+        //false 
+    }
 
     return{
         state,
-        addToCart
+        addToCart,
+        removeCart,
+        clearCart,
+        isInCart
     }
 }
 

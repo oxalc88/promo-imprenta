@@ -7,9 +7,11 @@ import { ButtonAddtoCart } from "../../Buttons/Button";
 
 function Item({ product }) {
 
-    const { addToCart } = useContext(AppContext);
-    const handleClick = item => {
-        addToCart(item)
+    const { addToCart} = useContext(AppContext);
+    
+    const handleClick = () => {
+        const item = {product} 
+        addToCart(item);
     }
 
     return (
