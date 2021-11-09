@@ -8,8 +8,18 @@ import AppContext from '../context/AppContext.js'
 
 const ShoppingCart = () => {
 	const [toggleOrder, setToggleOrder] = useState(true)
-	const {state: {cart}} = useContext(AppContext)
 	
+	
+	const { state: { cart } } = useContext(AppContext)
+	// const totalCart = () => {
+	// 	const reducer = (accumulator, {product}) => accumulator + product.price * quantity;
+		
+	// 	const orderCart = cart.reduce(reducer, 0);
+	// 	console.log(orderCart);
+	// 	console.log(reducer);
+	// 	return orderCart;
+
+	// }
 
 	return (
 		<Transition.Root show={toggleOrder} as={Fragment}>
@@ -56,9 +66,9 @@ const ShoppingCart = () => {
 										<div className="mt-8">
 											<div className="flow-root">
 												<ul role="list" className="-my-6 divide-y divide-gray-200">
-													{cart.map((product => (
-														<MyOrder key={`${product.id}`} product={product} />	
-													)))}
+													{cart.map(({ product }) => (
+														<MyOrder key={`cartItem-${product.id}`} product={product} id={product.id}/>
+													))}
 												</ul>
 											</div>
 										</div>
@@ -67,7 +77,7 @@ const ShoppingCart = () => {
 									<div className="border-t border-gray-200 py-6 px-4 sm:px-6">
 										<div className="flex justify-between text-base font-medium text-gray-900">
 											<p>Subtotal</p>
-											<p>$262.00</p>
+											<p>1</p>
 										</div>
 										<div className="mt-6">
 											<Link to="/cart">
