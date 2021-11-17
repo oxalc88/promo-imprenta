@@ -24,3 +24,6 @@ yarn-error.log*
 
 //configuracion de vscode
 .vscode
+
+//otros archivos
+products.json
