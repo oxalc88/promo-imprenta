@@ -11,15 +11,13 @@ const ShoppingCart = () => {
 	
 	
 	const { state: { cart } } = useContext(AppContext)
-	// const totalCart = () => {
-	// 	const reducer = (accumulator, {product}) => accumulator + product.price * quantity;
+	const totalCart = () => {
+		const reducer = (accumulator, {product, quantity}) => accumulator + product.price * quantity;
 		
-	// 	const orderCart = cart.reduce(reducer, 0);
-	// 	console.log(orderCart);
-	// 	console.log(reducer);
-	// 	return orderCart;
+		const orderCart = cart.reduce(reducer, 0);
+		return orderCart;
 
-	// }
+	}
 
 	return (
 		<Transition.Root show={toggleOrder} as={Fragment}>
@@ -66,8 +64,8 @@ const ShoppingCart = () => {
 										<div className="mt-8">
 											<div className="flow-root">
 												<ul role="list" className="-my-6 divide-y divide-gray-200">
-													{cart.map(({ product }) => (
-														<MyOrder key={`cartItem-${product.id}`} product={product} id={product.id}/>
+													{cart.map(({ product, quantity }) => (
+														<MyOrder key={`cartItem-${product.id}`} product={product} quantity={quantity} />
 													))}
 												</ul>
 											</div>
@@ -77,7 +75,7 @@ const ShoppingCart = () => {
 									<div className="border-t border-gray-200 py-6 px-4 sm:px-6">
 										<div className="flex justify-between text-base font-medium text-gray-900">
 											<p>Subtotal</p>
-											<p>1</p>
+											<p>{totalCart()}</p>
 										</div>
 										<div className="mt-6">
 											<Link to="/cart">

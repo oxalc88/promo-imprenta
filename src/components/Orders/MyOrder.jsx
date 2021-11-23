@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 
 
 
-const MyOrder = ({ product }, id) => {
-    const [quantity, setQuantity] = useState(1);
-    const stock = 10;
+const MyOrder = ({ product, quantity }) => {
+    
     const { removeCart } = useContext(AppContext);
-    const handleRemove = () => {
-        removeCart(id)
+    
+    const handleRemove = product => {
+        removeCart(product)
     }
 
     return (
@@ -35,7 +35,7 @@ const MyOrder = ({ product }, id) => {
                     </div>
                 </div>
                 <div className="flex-1 flex items-end justify-between text-sm">
-                    <ItemCount stock={stock} quantity={quantity} setQuantity={setQuantity} />
+                    <p>Cantidad: {quantity} </p>
 
                     <div className="flex" onClick={() => handleRemove(product)} >
                         <RemoveCartButton action="Quitar" />
