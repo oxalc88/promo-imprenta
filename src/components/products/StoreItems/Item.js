@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react/cjs/react.development";
+import { useContext, useState } from "react";
 import AppContext from "../../../context/AppContext";
 import { ButtonAddtoCart } from "../../Buttons/Button";
-
+import { ItemCount } from "./ItemCount";
 
 
 function Item({ product }) {
+    const [quantity, setQuantity] = useState(1);
+    const { addToCart } = useContext(AppContext);
 
-    const { addToCart} = useContext(AppContext);
-    
     const handleClick = () => {
-        const item = {product} 
+        const item = { product, quantity }
         addToCart(item);
     }
 
@@ -22,6 +22,7 @@ function Item({ product }) {
             <h4 className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200">{product.title}</h4>
 
             <p className="text-blue-500">{product.price}</p>
+            <ItemCount stock={product.stock} quantity={quantity} setQuantity={setQuantity} />
             <ButtonAddtoCart action='Añadir al Carrito' onClickFunction={handleClick} />
         </div>
     )

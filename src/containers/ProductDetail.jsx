@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { ButtonAddtoOrder } from '../components/Buttons/Button';
 import AppContext from '../context/AppContext';
 import { getFirestore } from '../firebase';
+import { ItemCount } from '../components/products/StoreItems/ItemCount';
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -10,6 +11,8 @@ const ProductDetail = () => {
     const { addToCart } = useContext(AppContext);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [quantity, setQuantity] = useState(1);
+    const stock = 10;
 
     const handleClick = () => {
         const item = { products }
@@ -51,6 +54,7 @@ const ProductDetail = () => {
                                 <p className="mt-4 text-gray-600 dark:text-gray-300">{products.description}</p>
                                 <div className="flex flex-col items-between ">
                                     <span className="pt-2 text-4xl font-bold text-gray-800 dark:text-gray-100">{products.price}</span>
+                                    <ItemCount stock={stock} quantity={quantity} setQuantity={setQuantity} />
                                     <ButtonAddtoOrder name={'Añadir al carrito'} onClickFunction={handleClick} />
                                 </div>
 
