@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 
 
 const MyOrder = ({ product, quantity }) => {
-    
+
     const { removeCart } = useContext(AppContext);
-    
+
     const handleRemove = product => {
         removeCart(product)
     }

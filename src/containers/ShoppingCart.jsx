@@ -78,7 +78,7 @@ const ShoppingCart = () => {
 											<p>{totalCart()}</p>
 										</div>
 										<div className="mt-6">
-											<Link to="/cart">
+											<Link to="/checkout">
 												<ButtonCheckout message={'Ir a la bolsa'} />
 											</Link>
 										</div>

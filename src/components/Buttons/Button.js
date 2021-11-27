@@ -55,14 +55,15 @@ function RemoveCartButton({ action }) {
 
 }
 
-function ButtonCheckout({message}) {
+function ButtonCheckout({ message, action }) {
 
     return (
-        <div
+        <button
             className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
-        >
+            onClick={action}
+            >
             {message}
-        </div>
+        </button>
     )
 }
 
