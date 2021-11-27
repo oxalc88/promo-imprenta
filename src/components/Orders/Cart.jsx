@@ -12,7 +12,7 @@ export const Cart = () => {
         const reducer = (accumulator, { product, quantity }) => accumulator + product.price * quantity;
 
         const orderCart = cart.reduce(reducer, 0);
-        return orderCart;
+        return orderCart.toFixed(2);
 
     }
 
@@ -23,7 +23,7 @@ export const Cart = () => {
             product: {
                 id: product.id,
                 name: product.title,
-                price: product.price
+                price: product.price.toFixed(2)
             },
             quantity,
         }));
@@ -49,9 +49,9 @@ export const Cart = () => {
         const db = getFirestore();
         const orders = db.collection("orders");
         const batch = db.batch();
-        
+
         console.log(newOrder);
-        
+
         orders
             .add(newOrder)
             .then((response) => {
@@ -86,13 +86,14 @@ export const Cart = () => {
             <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                 <div className="flex justify-between text-base font-medium text-gray-900">
                     <p>Subtotal</p>
-                    <p>{totalCart()}</p>
+                    <p>S/ {totalCart()} soles</p>
+
                 </div>
                 <div className="mt-6">
-                    
-                        <ButtonCheckout message={'Comprar'} action={handleFinishPurcharse}/>
-                        {orderID && <h3>Tu orden con el id: {orderID} ha sido creado</h3>}
-                    
+
+                    <ButtonCheckout message={'Comprar'} action={handleFinishPurcharse} />
+                    {orderID && <h3>Tu orden con el id: {orderID} ha sido creado</h3>}
+
                 </div>
                 <div className="mt-6 flex justify-center text-sm text-center text-gray-500">
                     <p>
