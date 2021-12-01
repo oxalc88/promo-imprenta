@@ -6,64 +6,64 @@ import AppContext from '../../context/AppContext';
 import { getFirestore } from '../../firebase';
 import firebase from '@firebase/app-compat';
 
-export const Cart = () => {
-    const { state: { cart } } = useContext(AppContext)
-    const totalCart = () => {
-        const reducer = (accumulator, { product, quantity }) => accumulator + product.price * quantity;
+export const Cart = ({cart, orderID, handleFinishPurcharse, totalCart}) => {
+    // const { state: { cart } } = useContext(AppContext)
+    // const totalCart = () => {
+    //     const reducer = (accumulator, { product, quantity }) => accumulator + product.price * quantity;
 
-        const orderCart = cart.reduce(reducer, 0);
-        return orderCart.toFixed(2);
+    //     const orderCart = cart.reduce(reducer, 0);
+    //     return orderCart.toFixed(2);
 
-    }
+    // }
 
-    const [orderID, setOrderID] = useState(null);
+    // const [orderID, setOrderID] = useState(null);
 
-    const handleFinishPurcharse = () => {
-        const newCart = cart.map(({ product, quantity }) => ({
-            product: {
-                id: product.id,
-                name: product.title,
-                price: product.price.toFixed(2)
-            },
-            quantity,
-        }));
+    // const handleFinishPurcharse = () => {
+    //     const newCart = cart.map(({ product, quantity }) => ({
+    //         product: {
+    //             id: product.id,
+    //             name: product.title,
+    //             price: product.price.toFixed(2)
+    //         },
+    //         quantity,
+    //     }));
 
 
-        const newOrder = {
-            buyer: {
-                name: "Karina Sissi",
-                phone: "978546312",
-                email: "karina@sissi.com",
-                address: "Av. Siempre Viva 363",
-                region: "Lima",
-                provincia: "Lima",
-                distrito: "Los Olivos",
-                post_code: "15301",
-                referencia: "espalda Palacio Juventud"
-            },
-            cart: newCart,
-            date: firebase.firestore.Timestamp.fromDate(new Date()),
-            total: `"${totalCart}"`
-        }
+    //     const newOrder = {
+    //         buyer: {
+    //             name: "Karina Sissi",
+    //             phone: "978546312",
+    //             email: "karina@sissi.com",
+    //             address: "Av. Siempre Viva 363",
+    //             region: "Lima",
+    //             provincia: "Lima",
+    //             distrito: "Los Olivos",
+    //             post_code: "15301",
+    //             referencia: "espalda Palacio Juventud"
+    //         },
+    //         cart: newCart,
+    //         date: firebase.firestore.Timestamp.fromDate(new Date()),
+    //         total: `"${totalCart}"`
+    //     }
 
-        const db = getFirestore();
-        const orders = db.collection("orders");
-        const batch = db.batch();
+    //     const db = getFirestore();
+    //     const orders = db.collection("orders");
+    //     const batch = db.batch();
 
-        console.log(newOrder);
+    //     console.log(newOrder);
 
-        orders
-            .add(newOrder)
-            .then((response) => {
-                cart.forEach(({ product, quantity }) => {
-                    const docRef = db.collection("products").doc(product.id);
-                    batch.update(docRef, { stock: product.stock - quantity });
-                });
-                batch.commit();
-                setOrderID(response.id);
-            })
-            .catch((error) => console.log(error));
-    };
+    //     orders
+    //         .add(newOrder)
+    //         .then((response) => {
+    //             cart.forEach(({ product, quantity }) => {
+    //                 const docRef = db.collection("products").doc(product.id);
+    //                 batch.update(docRef, { stock: product.stock - quantity });
+    //             });
+    //             batch.commit();
+    //             setOrderID(response.id);
+    //         })
+    //         .catch((error) => console.log(error));
+    // };
 
     return (
         <div className="flex flex-col bg-white m-4 p-4">
@@ -74,7 +74,7 @@ export const Cart = () => {
 
                 <div className="mt-8">
                     <div className="flow-root">
-                        <ul role="list" className="-my-6 divide-y divide-gray-200">
+                        <ul className="-my-6 divide-y divide-gray-200">
                             {cart.map(({ product, quantity }) => (
                                 <MyOrder key={`cartItem-${product.id}`} product={product} quantity={quantity} />
                             ))}
@@ -91,7 +91,7 @@ export const Cart = () => {
                 </div>
                 <div className="mt-6">
 
-                    <ButtonCheckout message={'Comprar'} action={handleFinishPurcharse} />
+                    <ButtonCheckout message={'Comprar'} action={handleFinishPurcharse} type="submit" />
                     {orderID && <h3>Tu orden con el id: {orderID} ha sido creado</h3>}
 
                 </div>

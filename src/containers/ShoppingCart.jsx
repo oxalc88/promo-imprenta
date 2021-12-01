@@ -63,7 +63,7 @@ const ShoppingCart = () => {
 
 										<div className="mt-8">
 											<div className="flow-root">
-												<ul role="list" className="-my-6 divide-y divide-gray-200">
+												<ul className="-my-6 divide-y divide-gray-200">
 													{cart.map(({ product, quantity }) => (
 														<MyOrder key={`cartItem-${product.id}`} product={product} quantity={quantity} />
 													))}

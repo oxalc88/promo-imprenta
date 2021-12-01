@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
 import AppContext from '../../context/AppContext';
-import { ItemCount } from '../products/StoreItems/ItemCount'
 import { RemoveCartButton } from '../Buttons/Button'
-import { useState } from 'react/cjs/react.development';
 import { Link } from 'react-router-dom';
 
 
