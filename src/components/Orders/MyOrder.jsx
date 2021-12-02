@@ -1,16 +1,14 @@
 import React, { useContext } from 'react'
 import AppContext from '../../context/AppContext';
-import { ItemCount } from '../products/StoreItems/ItemCount'
 import { RemoveCartButton } from '../Buttons/Button'
-import { useState } from 'react/cjs/react.development';
 import { Link } from 'react-router-dom';
 
 
 
 const MyOrder = ({ product, quantity }) => {
-    
+
     const { removeCart } = useContext(AppContext);
-    
+
     const handleRemove = product => {
         removeCart(product)
     }
@@ -31,7 +29,7 @@ const MyOrder = ({ product, quantity }) => {
                         <Link to={`/item/:${product.id}`} >
                             <h3>{product.title}</h3>
                         </Link>
-                        <p className="ml-4">{product.price}</p>
+                        <p className="ml-4">{product.price.toFixed(2)}</p>
                     </div>
                 </div>
                 <div className="flex-1 flex items-end justify-between text-sm">

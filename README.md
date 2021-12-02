@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# promo-imprenta
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PromoImprenta es un proyecto de ecommerce para el curso de **REACT en Coderhouse**.
 
-## Available Scripts
+# Comenzando🚀
 
-In the project directory, you can run:
+Este proyeco usa tailwind css, por lo que deberás seguir las instrucciones para su uso detalladas aquí ([Install Tailwind CSS with Create React App - Tailwind CSS](https://tailwindcss.com/docs/guides/create-react-app)), donde reemplazarás los scripts de Create React App por los de Craco.
 
-### `yarn start`
+## Construido sobre🛠️
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Para reproducirlo necesitaras una versión de Node 12.13.0 como mínimo cuyas instrucciones las encontrarás en [Node.js (nodejs.org)](https://nodejs.org/es/) para poder usar Tailwind.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Para los íconos se uso Herocoins, aquí encontrarás los detalles de su composición en su [documentación](https://github.com/tailwindlabs/heroicons)
 
-### `yarn test`
+También se usaron los componentes de [Headless UI – Unstyled, fully accessible UI components](https://headlessui.dev/) para las animaciones del carrito de compras lateral.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+El Backend está hecho en Firebase, donde tienes que crearte una cuenta y seguir su configuración [con estas indicaciones](https://cloud.google.com/firestore/docs/client/get-firebase). 
 
-### `yarn build`
+Se usó [React Router](https://v5.reactrouter.com/web/guides/quick-start) para el manejo de las rutas.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Por último para el manejo de formularios se usó [React Hook Form](https://react-hook-form.com/get-started)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Autor✒️
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Todo el proyecto y sus bugs están a cargo de:
+Rolando Quispe - [oxalc88 (Rolando Oxalc)](https://github.com/oxalc88)
 
-### `yarn eject`
+## Licencia  📄
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+El proyecto tiene licencia MIT, por lo que puedes utilizarlo casi para todo lo que se te ocurra. Para saber más a detalle en qué consiste [puedes leer sobre ella aquí ](https://es.wikipedia.org/wiki/Licencia_MIT).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Míralo En Acción
+[Aquí](https://www.loom.com/share/5cfba5f056b44316a0bf58d2087cb9a4) puedes ver cómo se ve en funcionamiento.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Show me your Love  🎁
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- La mejor forma de apoyar este proyecto es brindando luces sobre sus bugs y orientándome sobre sus soluciones para seguir creciendo como desarrollador.

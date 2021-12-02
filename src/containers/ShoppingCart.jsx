@@ -15,7 +15,7 @@ const ShoppingCart = () => {
 		const reducer = (accumulator, {product, quantity}) => accumulator + product.price * quantity;
 		
 		const orderCart = cart.reduce(reducer, 0);
-		return orderCart;
+		return orderCart.toFixed(2);
 
 	}
 
@@ -63,7 +63,7 @@ const ShoppingCart = () => {
 
 										<div className="mt-8">
 											<div className="flow-root">
-												<ul role="list" className="-my-6 divide-y divide-gray-200">
+												<ul className="-my-6 divide-y divide-gray-200">
 													{cart.map(({ product, quantity }) => (
 														<MyOrder key={`cartItem-${product.id}`} product={product} quantity={quantity} />
 													))}
@@ -75,10 +75,10 @@ const ShoppingCart = () => {
 									<div className="border-t border-gray-200 py-6 px-4 sm:px-6">
 										<div className="flex justify-between text-base font-medium text-gray-900">
 											<p>Subtotal</p>
-											<p>{totalCart()}</p>
+											<p>S/ {totalCart()} soles</p>
 										</div>
 										<div className="mt-6">
-											<Link to="/cart">
+											<Link to="/checkout">
 												<ButtonCheckout message={'Ir a la bolsa'} />
 											</Link>
 										</div>

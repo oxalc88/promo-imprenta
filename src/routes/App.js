@@ -6,7 +6,7 @@ import { Home } from '../pages/Home';
 import ProductDetail from '../containers/ProductDetail';
 import Layout from '../containers/Layout';
 import CategoryCatalog from '../components/products/Categories/CategoryCatalog';
-import Cart from '../pages/Cart';
+import Checkout from '../pages/Checkout';
 import AppContext from '../context/AppContext';
 import useInitialState from '../hooks/useInitialState'
 
@@ -20,7 +20,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/category/:categoryId" component={CategoryCatalog} />
             <Route path="/item/:id" component={ProductDetail} />
-            <Route path="/cart" component={Cart} />
+            <Route path="/checkout" component={Checkout} />
             <Route path="*" component={NotFound} />
           </Switch>
         </Layout>
