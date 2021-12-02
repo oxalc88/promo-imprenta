@@ -3,13 +3,13 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const app = firebase.initializeApp({
-    apiKey: "AIzaSyB8XMNbbVp-Pgz4fW-K_OFzLt6kkivvuaw",
-    authDomain: "promo-imprenta.firebaseapp.com",
-    projectId: "promo-imprenta",
-    storageBucket: "promo-imprenta.appspot.com",
-    messagingSenderId: "713580423708",
-    appId: "1:713580423708:web:ddd251f23b0e0156c70dd9",
-    measurementId: "G-CS3TDGFFW5"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGE_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 });
 
 export const getFirebase = () => app

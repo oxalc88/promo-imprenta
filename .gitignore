@@ -27,3 +27,4 @@ yarn-error.log*
 
 //otros archivos
 products.json
+.env

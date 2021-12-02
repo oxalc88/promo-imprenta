@@ -18,7 +18,7 @@ const Checkout = () => {
 
     const [orderData, setOrderData] = useState([])
 
-    const onSubmit = async (data, e) => {
+    const onSubmit = (data, e) => {
         console.log(data);
         setOrderData([
             ...orderData,
