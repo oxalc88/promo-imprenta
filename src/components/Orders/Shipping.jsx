@@ -1,20 +1,9 @@
 import { useForm } from "react-hook-form"
-import { useState } from "react";
+
 
 export const Shipping = (onSubmit) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    // const [orderData, setOrderData] = useState([])
-
-    // const onSubmit = (data, e) => {
-    //     console.log(data);
-    //     setOrderData([
-    //         ...orderData,
-    //         data
-    //     ])
-
-    //     e.target.reset();
-    // }
 
     return (
         <div className="flex flex-col w-md:w-full m-4 p-4">
